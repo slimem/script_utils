@@ -51,7 +51,7 @@ Then you build
  docker build -t php_rana .
  ```
  
- Then you run by mirroring port 80 (outside) to 80 (inside the docker) 
+ Then you run by mirroring port 80 (outside) to 80 (inside the docker), and mount path /home/ubuntu/ to /var/www/html
  ```sh
- docker run -p 80:80 php_rana
+ docker run -p 80:80 -v /home/ubuntu/:/var/www/html/ php_rana
  ```
