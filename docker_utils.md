@@ -38,3 +38,20 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io
 ```sh
 sudo docker run hello-world
 ```
+
+### Install a docker image from dockerhub
+First, you need to create a Dockerfile. For example, to install PHP, you need to add the following:
+```Dockerfile
+FROM php:7.2-apache
+COPY src/ /var/www/html
+EXPOSE 80
+```
+Then you build
+```sh
+ docker build -t php_rana .
+ ```
+ 
+ Then you run by mirroring port 80 (outside) to 80 (inside the docker) 
+ ```sh
+ docker run -p 80:80 php_rana
+ ```
