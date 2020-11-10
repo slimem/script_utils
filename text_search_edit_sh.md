@@ -54,6 +54,11 @@ Loop line by line, find occurences of ```MATCH1```, and count lines with ```wc -
 ```sh
 cat file.log | while read -r line; do grep -l MATCH1 $line; done | wc -l
 ```
+Find all files containing ```MATCH```, replace ```FOO``` by ```BAR```, and open as edit by perforce
+```sh
+grep -rl "MATCH" . | while read -r line; do sed -i 's/FOO/BAR/g' $line; p4 edit $line; done
+```
+
 ### A simple script
 This script is useful for matching strings in files and editing them accordingly.
 ```sh
