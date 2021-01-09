@@ -59,6 +59,11 @@ Find all files containing ```MATCH```, replace ```FOO``` by ```BAR```, and open 
 grep -rl "MATCH" . | while read -r line; do sed -i 's/FOO/BAR/g' $line; p4 edit $line; done
 ```
 
+Find all lines containing ```MATCH```, adds up all the values in the last column
+```sh
+awk 'BEGIN{count = 0} END {print count} /$MATCH/{count += $NF}'
+```
+
 ### A simple script
 This script is useful for matching strings in files and editing them accordingly.
 ```sh
