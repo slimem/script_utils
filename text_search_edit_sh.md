@@ -91,3 +91,10 @@ do
     echo "Opened file $line as edit"
 done
 ```
+
+## VIM tricks for the average life of a daily programmer
+
+### Replace text in a file after some match
+```sh
+:%s/\(conn_[0-9]\{2\}_[a-z]\+_[0-9]\+.*cabling\)=\"true\"/\1=\"false\"/g
+```
