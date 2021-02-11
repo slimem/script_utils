@@ -64,6 +64,11 @@ Find all lines containing ```MATCH```, adds up all the values in the last column
 awk 'BEGIN{count = 0} END {print count} /$MATCH/{count += $NF}'
 ```
 
+Find all lines that start with ```MATCH```, exlude lines that contain ```EX```, extract second column, then run treat each line as a path in grep, and find files that contain ```MATCH2```.
+```sh
+fail | \grep "^MATCH:" | \grep -v "EX" | awk '{print $2}' | xargs grep "MATCH2"
+```
+
 ### A simple script
 This script is useful for matching strings in files and editing them accordingly.
 ```sh
