@@ -55,3 +55,32 @@ Then you build
  ```sh
  docker run -p 80:80 -v /home/ubuntu/:/var/www/html/ php_rana
  ```
+ 
+ ## Running Docker
+ ### Running in interactive mode (useful for ubuntu instances for example)
+ To run a docker instance in an interactive mode, add **-it** to the run command like the following:
+ ```sh
+ docker run -it ubuntu /bin/bash
+ ```
+ To exit the interactive instance, type ```exit``` which will terminate the ```/bin/bash``` command but the container is not removed.
+ 
+ ## Saving and loading an image file
+ ### Saving an image to a file locally
+ It is possible to save a running image to a file by redirecting the stdout to a file:
+ ```sh
+ docker save ubuntu_risc_v > risc_v.tar
+ ```
+ Or by using -o option:
+ ```sh
+ docker save -o risc_v.tar ubuntu_risc_v
+ ```
+ ### Loading a local image
+ To load a local image, list all available images then load the selected image (from stdin):
+ ```sh
+ docker image ls
+ docker load < risc_v.tar
+ ```
+Or by using the -i option:
+```sh
+docker load -i risc_v.tar
+```
