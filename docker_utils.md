@@ -113,6 +113,11 @@ docker images
 ```sh
 docker ps -a
 ```
+### Logging in to docker registry
+It is possible to login by passing a file through stdin:
+```sh
+cat ~/my_password.txt | docker login --username foo --password-stdin
+```
 
 
 
