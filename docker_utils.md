@@ -97,6 +97,10 @@ It is possible to remove all containers in one go by using the following:
 ```sh
 docker rm $(docker ps -aq)
 ```
+Please note that by default, it is not possible to remove running containers (they need to be forced using the option -f):
+```sh
+docker rm -f $(docker ps -aq)
+```
 ### Loading a local image
 To load a local image, list all available images then load the selected image (from stdin):
 ```sh
